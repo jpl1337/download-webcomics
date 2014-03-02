@@ -1,0 +1,72 @@
+#3/1/2014
+#This is my fist attempt at doing any programming/scripting on my own
+#It's very simple and limited, but it got the job done.
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+#This script downloads the comics from http://romanticallyapocalyptic.com
+#I used the easiest method I could find because I'm very much a n00b and I only know a little python
+#It takes a couple minutes(depending on network speeds), but it's faster than doing it manually. 
+#You must adjust the directory where you want the comcis to download to.
+#The easiest way to do that is a search and replace for: /home/user/
+#PS: The script will create two files that there aren't comics for: 1.jpg and 128.jpg 
+#I don't know how to exclude those.
+
+#You're welcome to use and distribute as you wish. I'd love it if you gave me credit. Enjoy! 
+
+
+import urllib
+import urllib2
+import httplib
+
+i=0
+number=str(i)
+url="http://romanticallyapocalyptic.com/art/"
+next_url= url + number + '.jpg'
+path= number+'.jpg'
+    
+while i!= 177: #at the time of writing this there were a total of 177 comics titled numerically
+    urllib.urlretrieve(next_url, '/home/user/'+ path )
+    print next_url + ' was downloaded'
+    i=i+1
+    number=str(i)
+    next_url= url + number + '.jpg'
+    path= number+'.jpg'
+    
+print '##############DONE WITH NUMERICALLY TITLED COMICS################'
+
+#Unfortunately this doesn't download ALL the comics because some of them aren't named numerically. So this downloads the others
+#You'll need to change the 
+
+urllib.urlretrieve(url+'merry-apocalismas.jpg', '/home/user/merry-apocalismas.jpg' )
+print url+'merry-apocalismas.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'core/81.jpg', '/home/user/core-81.jpg' )
+print url+'core/81.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'102-consumption.jpg', '/home/user/102-consumption.jpg' )
+print url+'102-consumption.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'captain-unmasked.jpg', '/home/user/captain-unmasked.jpg' )
+print url+'captain-unmasked.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'core/daydream.jpg', '/home/user/core-daydream.jpg' )
+print url+'core/daydream' + ' was downloaded'
+
+urllib.urlretrieve(url+'delicious-doomsday.jpg', '/home/user/delicious-doomsday.jpg' )
+print url+'delicious-doomsday.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'5f.jpg', '/home/user/5f.jpg' )
+print url+'5f.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'5-5.jpg', '/home/user/5-5.jpg' )
+print url+'5-5.jpg' + ' was downloaded'
+
+urllib.urlretrieve(url+'4-5.jpg', '/home/user/4-5.jpg' )
+print url+'4-5.jpg' + ' was downloaded'
+
+print '#############DONE DOWNLOADING OTHER COMICS############'
+
+
